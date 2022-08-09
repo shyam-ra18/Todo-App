@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./to-do-list.png" />
+    <title>Todo App</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    body {
+        background: rgb(238, 174, 202);
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        margin-top: 0.6em;
+    }
+
+    .container {
+        width: 50%;
+        background-color: rgba(230, 237, 243, 0.719);
+        margin: auto;
+        height: 60vh;
+        border-radius: 5px;
+        margin-top: 5px;
+        padding: 20px 15px;
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.849);
+       
+
+    }
+
+    input {
+        width: 40%;
+        margin: 1% 30%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid gray;
+    }
+
+    button {
+        border: none;
+        width: 10%;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0px 600px;
+        cursor: pointer;
+        color: rgb(22, 22, 22);
+        background-color: rgba(184, 247, 226, 0.733);
+        border: 1px solid rgba(255, 255, 255, 0.849);
+    }
+
+    button:hover {
+        background-color: rgba(208, 243, 231, 0.678);
+    }
+
+    .list {
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.603);
+        border-radius: 5px;
+        padding: 10px 5px;
+        color: white;
+        font-size: 16px;
+        margin-top: 10px;
+
+    }
+
+    .close {
+        float: right;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <h1>To Do Application.</h1>
+    <div class="container">
+        <div class="lii"></div>
+    </div>
+    <input type="text" id="txt" placeholder="Add Your Items !!!">
+    <button id="btn" onclick="addItem()">Add Item</button>
+
+    <script>
+        function addItem() {
+            document.querySelector('.lii').innerHTML +=
+                `<div class='list'> 
+            ${document.querySelector('#txt').value}  <img src="./cancel.png" class="close">`
+
+            document.querySelector('#txt').value = "";
+
+
+            var current_tasks = document.querySelectorAll(".close");
+            for (var i = 0; i < current_tasks.length; i++) {
+                current_tasks[i].onclick = function () {
+                    this.parentNode.remove();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
